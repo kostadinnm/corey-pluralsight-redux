@@ -12,24 +12,30 @@ import Routz from "./components/routes";
 import "./styles/styles.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
+import { Provider } from "react-redux";
+import configStore from "./store/configureStore";
 
 // RactDOM.render(<App />, document.getElementById("root"));
 // render(
 //     <Router history={browserHistory} routes={routes} />, document.getElementById("root")
 // );
 
+const store = configStore();
+
 render(
-  <Router>
-    <Routz />
-  </Router>,
-  //   <Router>
-  //     <App>
-  //       <Switch>
-  //         <Route exact path="/" component={HomePage} />
-  //         <Route path="/home" component={HomePage} />
-  //         <Route path="/about" component={AboutPage} />
-  //       </Switch>
-  //     </App>
-  //   </Router>,
+  <Provider store={store}>
+    <Router>
+      <Routz />
+    </Router>
+    {/* <Router>
+      <App>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/home" component={HomePage} />
+          <Route path="/about" component={AboutPage} />
+        </Switch>
+      </App>
+    </Router> */}
+  </Provider>,
   document.getElementById("root")
 );
