@@ -1,22 +1,23 @@
 import React from "react";
 // import {Link, IndexLink }
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 // import PropTypes from "prop-types";
 
 const Header = () => {
   return (
     <nav>
+      {/* TODO: deactivate for sub-routes */}
       <NavLink to="/" activeClassName="active">
         Home
       </NavLink>
       {" | "}
-      <Link to="/courses" activeClassName="active">
+      <NavLink to="/courses" activeClassName="active">
         Courses
-      </Link>
+      </NavLink>
       {" | "}
-      <Link to="/about" activeClassName="active">
+      <NavLink to="/about" activeClassName="active">
         About
-      </Link>
+      </NavLink>
     </nav>
   );
 };
