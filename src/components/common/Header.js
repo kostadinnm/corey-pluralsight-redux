@@ -6,7 +6,12 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
   return (
     <nav>
+<<<<<<< HEAD
       <NavLink exact to="/" activeClassName="active">
+=======
+      {/* TODO: deactivate for sub-routes */}
+      <NavLink to="/" activeClassName="active">
+>>>>>>> 12e18d5016ccfe8840fa7b2d84c8963cb05470e2
         Home
       </NavLink>
       {" | "}
