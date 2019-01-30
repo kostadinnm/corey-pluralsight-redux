@@ -15,12 +15,15 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { Provider } from "react-redux";
 import configStore from "./store/configureStore";
 
+import {loadCourses} from "./actions/courseActions";
+
 // RactDOM.render(<App />, document.getElementById("root"));
 // render(
 //     <Router history={browserHistory} routes={routes} />, document.getElementById("root")
 // );
 
 const store = configStore();
+store.dispatch(loadCourses());
 
 render(
   <Provider store={store}>
