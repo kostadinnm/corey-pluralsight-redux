@@ -14,12 +14,22 @@ class CoursesPage extends React.Component {
     return <div key={index}>{course.title}</div>;
   }
 
+  redirectToAddCoursePage = () => {
+    this.props.history.push("/course");
+  };
+
   render() {
     const { courses } = this.props;
-    
+
     return (
       <div>
         <h1>Courses</h1>
+        <input
+          type="submit"
+          value="Add Course"
+          className="btn btn-primary"
+          onClick={this.redirectToAddCoursePage}
+        />
         <CourseList courses={courses} />
       </div>
     );
@@ -28,9 +38,9 @@ class CoursesPage extends React.Component {
 
 //TODO: find out why these are so needed:
 CoursesPage.propTypes = {
-  courses: PropTypes.array.isRequired
+  courses: PropTypes.array.isRequired,
   // createCourse: PropTypes.func.isRequired
-  // actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {

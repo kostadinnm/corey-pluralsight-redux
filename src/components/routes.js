@@ -4,6 +4,7 @@ import App from "./App";
 import HomePage from "./home/HomePage";
 import AboutPage from "./about/AboutPage";
 import CoursesPage from "./course/CoursesPage";
+import ManageCoursePage from "./course/ManageCoursePage";
 
 // export default (
 //   <Route path="/" component={App}>
@@ -20,10 +21,15 @@ const Routz = () => {
         <Route exact path="/" component={HomePage} />
         <Route path="/home" component={HomePage} />
         <Route path="/courses" component={CoursesPage} />
+        <Route exact path="/course" component={ManageCoursePage} />
+        <Route
+          path="/course/:id"
+          render={props => <ManageCoursePage {...props} />}
+        />
         <Route path="/about" component={AboutPage} />
       </Switch>
     </App>
   );
-}
+};
 
 export default Routz;

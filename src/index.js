@@ -16,6 +16,7 @@ import { Provider } from "react-redux";
 import configStore from "./store/configureStore";
 
 import {loadCourses} from "./actions/courseActions";
+import {loadAuthors} from "./actions/authorActions";
 
 // RactDOM.render(<App />, document.getElementById("root"));
 // render(
@@ -24,6 +25,7 @@ import {loadCourses} from "./actions/courseActions";
 
 const store = configStore();
 store.dispatch(loadCourses());
+store.dispatch(loadAuthors());
 
 render(
   <Provider store={store}>
