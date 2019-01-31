@@ -17,7 +17,7 @@ class ManageCoursePage extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.course.id != nextProps.course.id) {
+    if (this.props.course.id !== nextProps.course.id) {
       this.setState({ course: Object.assign({}, nextProps.course) });
     }
   }
@@ -72,7 +72,7 @@ ManageCoursePage.propTypes = {
 // };
 
 function getCourseById(courses, id) {
-  const course = courses.filter(course => course.id == id);
+  const course = courses.filter(course => course.id === id);
   if (course.length) {
     return course[0];
   }

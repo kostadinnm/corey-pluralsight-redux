@@ -6,9 +6,9 @@ import PropTypes from "prop-types";
 import CourseList from "./CourseList";
 
 class CoursesPage extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-  }
+  // constructor(props, context) {
+  //   super(props, context);
+  // }
 
   courseRow(course, index) {
     return <div key={index}>{course.title}</div>;

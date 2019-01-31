@@ -81,7 +81,7 @@ class CourseApi {
           reject(`Title must be at least ${minCourseTitleLength} characters`);
         }
         if (course.id) {
-          const existingCourseIndex = courses.findIndex(a => a.id == course.id);
+          const existingCourseIndex = courses.findIndex(a => a.id === course.id);
           courses.splice(existingCourseIndex, 1, course);
         } else {
           course.id = generateId(course);
@@ -97,7 +97,7 @@ class CourseApi {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const indexOfCourseToDelete = courses.findIndex(course => {
-          return course.courseId == courseId;
+          return course.courseId === courseId;
         });
         courses.splice(indexOfCourseToDelete, 1);
         resolve();

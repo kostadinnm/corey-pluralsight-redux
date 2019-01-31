@@ -6,7 +6,7 @@ const CourseListRow = ({ course }) => {
   return (
     <tr>
       <td>
-        <a href={course.watchHref} target="_blank">
+        <a href={course.watchHref} target="_blank" rel="noopener noreferrer">
           Watch
         </a>
       </td>
