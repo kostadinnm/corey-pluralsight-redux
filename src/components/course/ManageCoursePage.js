@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as courseActions from "../../actions/courseActions";
 import CourseForm from "./CourseForm";
-import { Redirect } from "react-router-dom";
 import toastr from "toastr";
 
 class ManageCoursePage extends React.Component {
@@ -13,8 +12,7 @@ class ManageCoursePage extends React.Component {
     this.state = {
       course: Object.assign({}, props.course),
       errors: {},
-      saving: false,
-      redirect: false
+      saving: false
     };
   }
 
@@ -37,7 +35,10 @@ class ManageCoursePage extends React.Component {
     this.props.actions
       .saveCourse(this.state.course)
       .then(() => {
-        this.setState({ redirect: true, saving: false });
+        // this is not needed since the component will be destroyed and
+        // its state will get lost. Seems smelly, if it's only hidden, though
+        // this.setState({ saving: false });
+        this.props.history.push("/courses");
         toastr.success("Course saved");
       })
       .catch(err => {
@@ -47,9 +48,6 @@ class ManageCoursePage extends React.Component {
   };
 
   render() {
-    if (this.state.redirect) {
-      return <Redirect to="/courses" />;
-    }
     return (
       <CourseForm
         allAuthors={this.props.authors}
@@ -94,6 +92,7 @@ function mapStateToProps(state, ownProps) {
   };
 
   if (courseId && state.courses.length > 0) {
+    // TODO: handle 'course' in case of null
     course = getCourseById(state.courses, courseId);
   }
 

@@ -36,7 +36,6 @@ class CoursesPage extends React.Component {
   }
 }
 
-//TODO: find out why these are so needed:
 CoursesPage.propTypes = {
   courses: PropTypes.array.isRequired,
   // createCourse: PropTypes.func.isRequired
