@@ -15,8 +15,10 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { Provider } from "react-redux";
 import configStore from "./store/configureStore";
 
-import {loadCourses} from "./actions/courseActions";
-import {loadAuthors} from "./actions/authorActions";
+import { loadCourses } from "./actions/courseActions";
+import { loadAuthors } from "./actions/authorActions";
+
+import "../node_modules/toastr/build/toastr.min.css";
 
 // RactDOM.render(<App />, document.getElementById("root"));
 // render(
